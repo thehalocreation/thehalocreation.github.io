@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="The Halo Creation is a digital marketing and advertising agency helping ambitious brands earn attention and turn it into growth." />
+  <link rel="icon" href="data:," />
+  <title>The Halo Creation — Marketing & Advertising</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --paper: #17150f;
+      --paper-soft: #201d15;
+      --ink: #f4eddd;
+      --ink-soft: #c1b7a5;
+      --line: rgba(233, 204, 137, .18);
+      --line-strong: rgba(233, 204, 137, .40);
+      --gold: #d4a33d;
+      --gold-bright: #f0c866;
+      --gold-pale: #8e6c2d;
+      --panel: rgba(255,255,255,.025);
+      --shadow: rgba(0, 0, 0, .40);
+      --font-display: "Bodoni Moda", Georgia, serif;
+      --font-body: "Manrope", system-ui, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #090908;
+        --paper-soft: #11100c;
+        --ink: #f5efe3;
+        --ink-soft: #b9b0a0;
+        --line: rgba(234, 205, 139, .16);
+        --line-strong: rgba(234, 205, 139, .38);
+        --gold: #d8aa49;
+        --gold-bright: #f2cd70;
+        --gold-pale: #8d6c30;
+        --panel: rgba(255,255,255,.02);
+        --shadow: rgba(0, 0, 0, .52);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        linear-gradient(90deg, transparent 0, transparent calc(100% - 1px), var(--line) calc(100% - 1px)) 0 0 / min(8.33vw, 112px) 100%,
+        var(--paper);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--gold); color: var(--paper); }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    h1, h2, h3, p { margin-top: 0; }
+
+    .frame {
+      width: min(1180px, calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .utility-nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 30px;
+      border-bottom: 1px solid var(--line);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+    }
+
+    .utility-nav a {
+      text-decoration: none;
+      position: relative;
+      padding: 10px 0;
+    }
+
+    .utility-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 5px;
+      height: 1px;
+      background: var(--gold);
+      transition: right .25s ease;
+    }
+    .utility-nav a:hover::after,
+    .utility-nav a:focus-visible::after { right: 0; }
+
+    .hero {
+      min-height: calc(100svh - 72px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(310px, .82fr);
+      align-items: center;
+      gap: 54px;
+      padding-block: 82px 74px;
+    }
+
+    .hero-copy { position: relative; z-index: 1; }
+    .signal {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 30px;
+      color: var(--gold);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .signal::before { content: ""; width: 46px; height: 1px; background: currentColor; }
+
+    h1 {
+      max-width: 780px;
+      margin-bottom: 28px;
+      font-family: var(--font-display);
+      font-size: clamp(4.1rem, 9.4vw, 8.9rem);
+      font-weight: 500;
+      letter-spacing: -.065em;
+      line-height: .82;
+    }
+
+    h1 span { display: block; color: var(--gold); font-style: italic; font-weight: 400; }
+
+    .hero-lede {
+      max-width: 620px;
+      margin-bottom: 35px;
+      color: var(--ink-soft);
+      font-size: clamp(1.03rem, 1.45vw, 1.25rem);
+      line-height: 1.7;
+    }
+
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 0 22px;
+      border: 1px solid var(--ink);
+      text-decoration: none;
+      font-size: .83rem;
+      font-weight: 700;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .btn.primary { background: var(--ink); color: var(--paper); }
+    .btn.primary:hover, .btn.primary:focus-visible { background: var(--gold); border-color: var(--gold); color: #0d0c09; }
+    .btn.secondary:hover, .btn.secondary:focus-visible { border-color: var(--gold); color: var(--gold); }
+    .arrow { font-size: 1.1rem; line-height: 1; }
+
+    .halo-stage {
+      position: relative;
+      aspect-ratio: 1 / 1.12;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .halo-stage::before {
+      content: "";
+      position: absolute;
+      inset: 8%;
+      background: radial-gradient(circle at 50% 46%, color-mix(in srgb, var(--gold) 17%, transparent), transparent 63%);
+      filter: blur(4px);
+      z-index: -2;
+    }
+
+    .halo-ring {
+      width: 69%;
+      aspect-ratio: 1;
+      border: clamp(9px, 1vw, 15px) solid var(--gold);
+      border-radius: 50%;
+      transform: rotateX(68deg) rotateZ(-8deg);
+      box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--gold-bright) 65%, transparent),
+        0 10px 38px color-mix(in srgb, var(--gold) 32%, transparent),
+        inset 0 0 14px color-mix(in srgb, var(--gold-bright) 38%, transparent);
+    }
+
+    .halo-stage .axis {
+      position: absolute;
+      width: 1px;
+      height: 88%;
+      background: linear-gradient(transparent, var(--line-strong), transparent);
+    }
+    .halo-stage .axis.horizontal { height: 1px; width: 92%; }
+    .halo-stage .mark {
+      position: absolute;
+      right: 4%;
+      bottom: 15%;
+      width: 132px;
+      color: var(--ink-soft);
+      font-size: .69rem;
+      line-height: 1.5;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .halo-stage .mark strong { display: block; color: var(--gold); font-family: var(--font-display); font-size: 2rem; font-weight: 500; letter-spacing: -.03em; }
+
+    .section {
+      padding-block: 112px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+    .section-index { color: var(--gold); font-size: .72rem; font-weight: 700; letter-spacing: .14em; }
+    h2 {
+      max-width: 760px;
+      margin-bottom: 0;
+      font-family: var(--font-display);
+      font-size: clamp(2.7rem, 6.5vw, 5.7rem);
+      font-weight: 500;
+      letter-spacing: -.045em;
+      line-height: .98;
+    }
+
+    .services { border-top: 1px solid var(--line-strong); }
+    .service {
+      display: grid;
+      grid-template-columns: 70px minmax(200px, .8fr) minmax(280px, 1.2fr);
+      gap: 28px;
+      align-items: baseline;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .service-number { color: var(--gold); font-family: var(--font-display); font-size: 1.05rem; }
+    .service h3 { margin-bottom: 0; font-family: var(--font-display); font-size: clamp(1.55rem, 3vw, 2.25rem); font-weight: 500; letter-spacing: -.025em; }
+    .service p { margin-bottom: 0; color: var(--ink-soft); }
+
+    .approach-layout {
+      display: grid;
+      grid-template-columns: minmax(240px, .82fr) minmax(0, 1.18fr);
+      gap: 80px;
+      align-items: start;
+    }
+    .approach-intro { position: sticky; top: 32px; }
+    .approach-intro p { max-width: 430px; margin: 28px 0 0; color: var(--ink-soft); font-size: 1.05rem; }
+
+    .steps { counter-reset: steps; border-top: 1px solid var(--line-strong); }
+    .step {
+      counter-increment: steps;
+      display: grid;
+      grid-template-columns: 55px 1fr;
+      gap: 20px;
+      padding: 30px 0 34px;
+      border-bottom: 1px solid var(--line);
+    }
+    .step::before {
+      content: "0" counter(steps);
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 1rem;
+    }
+    .step h3 { margin-bottom: 10px; font-family: var(--font-display); font-size: 1.7rem; font-weight: 500; }
+    .step p { margin-bottom: 0; color: var(--ink-soft); }
+
+    .contact {
+      position: relative;
+      padding-block: 126px 114px;
+      border-top: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .contact::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      aspect-ratio: 1;
+      right: 7vw;
+      top: 50%;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      transform: translateY(-50%) rotateX(68deg);
+      opacity: .34;
+      pointer-events: none;
+    }
+    .contact-inner { position: relative; z-index: 1; }
+    .contact h2 { max-width: 850px; margin-bottom: 34px; }
+    .contact p { max-width: 600px; margin-bottom: 34px; color: var(--ink-soft); font-size: 1.08rem; }
+    .email {
+      display: inline-block;
+      max-width: 100%;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--gold);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.18rem, 2.5vw, 2rem);
+      font-weight: 500;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+    .email:hover, .email:focus-visible { color: var(--gold); }
+
+    .social-status {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      color: var(--ink-soft);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .social-status span,
+    .social-status a { display: inline-flex; align-items: center; gap: 9px; }
+    .social-status a { text-decoration: none; }
+    .social-status a:hover,
+    .social-status a:focus-visible { color: var(--gold); }
+    .social-status span::before,
+    .social-status a::before { content: ""; width: 7px; height: 7px; border: 1px solid var(--gold); border-radius: 50%; }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-block: 28px 42px;
+      border-top: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: .75rem;
+    }
+    footer a { text-decoration: none; }
+    footer a:hover, footer a:focus-visible { color: var(--gold); }
+
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
+
+    @media (max-width: 860px) {
+      body { background-size: 88px 100%; }
+      .frame { width: min(100% - 34px, 680px); }
+      .utility-nav { justify-content: flex-start; gap: 22px; overflow: hidden; }
+      .utility-nav a:last-child { margin-left: auto; }
+      .hero { min-height: auto; grid-template-columns: 1fr; gap: 14px; padding-block: 74px 50px; }
+      .hero-copy { padding-bottom: 10px; }
+      h1 { font-size: clamp(4rem, 18vw, 7rem); }
+      .halo-stage { width: min(100%, 480px); justify-self: center; aspect-ratio: 1 / .72; }
+      .halo-stage .axis { height: 100%; }
+      .halo-stage .axis.horizontal { width: 100%; }
+      .halo-ring { width: 55%; }
+      .halo-stage .mark { right: 1%; bottom: 5%; }
+      .section { padding-block: 84px; }
+      .section-heading { grid-template-columns: 1fr; gap: 18px; margin-bottom: 45px; }
+      .service { grid-template-columns: 48px 1fr; gap: 16px; }
+      .service p { grid-column: 2; }
+      .approach-layout { grid-template-columns: 1fr; gap: 50px; }
+      .approach-intro { position: static; }
+      .contact { padding-block: 90px 82px; }
+      .contact::after { right: -110px; width: 250px; }
+    }
+
+    @media (max-width: 520px) {
+      .frame { width: min(100% - 26px, 460px); }
+      .utility-nav { gap: 15px; font-size: .68rem; letter-spacing: .02em; }
+      .utility-nav a:nth-child(3) { display: none; }
+      .hero { padding-top: 56px; }
+      h1 { font-size: clamp(3.7rem, 20vw, 5.5rem); }
+      .signal { margin-bottom: 22px; }
+      .hero-lede { font-size: 1rem; }
+      .actions { display: grid; grid-template-columns: 1fr; }
+      .btn { width: 100%; }
+      .halo-stage { aspect-ratio: 1 / .65; }
+      .halo-stage .mark { width: 104px; font-size: .58rem; }
+      .halo-stage .mark strong { font-size: 1.55rem; }
+      .section { padding-block: 68px; }
+      h2 { font-size: clamp(2.55rem, 14vw, 4.1rem); }
+      .service { grid-template-columns: 36px 1fr; padding: 24px 0; }
+      .service h3 { font-size: 1.45rem; }
+      .service p { font-size: .93rem; }
+      .step { grid-template-columns: 40px 1fr; }
+      footer { flex-direction: column; gap: 8px; padding-bottom: 28px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="utility-nav frame" aria-label="Primary navigation">
+    <a href="#services">Services</a>
+    <a href="#approach">Approach</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section class="hero frame" id="about">
+      <div class="hero-copy">
+        <div class="signal">Marketing &amp; advertising studio</div>
+        <h1>The Halo <span>Creation</span></h1>
+        <p class="hero-lede">We put ambitious brands in the spotlight—with focused strategy, distinctive creative, and campaigns designed to turn attention into meaningful growth.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:rashideen.khairul@gmail.com?subject=Project%20inquiry%20for%20The%20Halo%20Creation">Start a conversation <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn secondary" href="#services">Explore our services</a>
+        </div>
+      </div>
+
+      <div class="halo-stage" aria-hidden="true">
+        <span class="axis"></span>
+        <span class="axis horizontal"></span>
+        <div class="halo-ring"></div>
+        <div class="mark"><strong>THC</strong>Clarity first.<br />Creative with purpose.</div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="frame">
+        <div class="section-heading">
+          <div class="section-index">01 / Capabilities</div>
+          <h2>A sharper presence, built around your goals.</h2>
+        </div>
+
+        <div class="services">
+          <article class="service">
+            <div class="service-number">01</div>
+            <h3>Social media marketing</h3>
+            <p>Channel strategy, content planning, publishing direction, and community thinking that help your brand show up consistently and stay relevant.</p>
+          </article>
+          <article class="service">
+            <div class="service-number">02</div>
+            <h3>Paid advertising</h3>
+            <p>Meta and Google Ads campaigns shaped around a clear audience, a strong offer, and measurable outcomes—not clicks without context.</p>
+          </article>
+          <article class="service">
+            <div class="service-number">03</div>
+            <h3>Content creation</h3>
+            <p>Campaign concepts, social-first copy, short-form content direction, and creative systems that keep every message aligned with your brand.</p>
+          </article>
+          <article class="service">
+            <div class="service-number">04</div>
+            <h3>Branding &amp; design</h3>
+            <p>Visual direction and brand assets that give your business a coherent, memorable presence across digital touchpoints.</p>
+          </article>
+          <article class="service">
+            <div class="service-number">05</div>
+            <h3>SEO</h3>
+            <p>Search-focused content and on-page improvements that make your offer easier to discover and your website easier to understand.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="frame approach-layout">
+        <div class="approach-intro">
+          <div class="section-index">02 / Our approach</div>
+          <h2>Good work starts with the right question.</h2>
+          <p>We begin with what your business needs to achieve, then build the clearest route toward it. No inflated promises—just thoughtful strategy, strong creative, and honest communication.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div>
+              <h3>Find the signal</h3>
+              <p>We clarify the audience, the offer, and the business goal before deciding what to make or where to spend.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Shape the idea</h3>
+              <p>Strategy becomes a focused creative direction—distinct enough to be remembered and practical enough to execute.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Launch with intent</h3>
+              <p>Campaigns and content go live with a clear purpose, consistent details, and the right measures of success.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div>
+              <h3>Learn, then sharpen</h3>
+              <p>Results guide the next move. We refine the message, creative, or channel based on what the work reveals.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="frame contact-inner">
+        <div class="section-index">03 / Let’s talk</div>
+        <h2>Ready to put your brand in the spotlight?</h2>
+        <p>Tell us what you are building, where you want to grow, and what is getting in the way. We will start with a focused conversation.</p>
+        <a class="email" href="mailto:rashideen.khairul@gmail.com?subject=Project%20inquiry%20for%20The%20Halo%20Creation">rashideen.khairul@gmail.com <span aria-hidden="true">↗</span></a>
+        <div class="social-status" aria-label="Social profile status">
+          <a href="https://www.instagram.com/thehalocreation/" target="_blank" rel="noopener noreferrer" aria-label="The Halo Creation on Instagram">Instagram — @thehalocreation</a>
+          <span>Facebook — launching soon</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="frame">
+    <span>© <span id="year">2026</span> The Halo Creation</span>
+    <a href="#about">Back to top ↑</a>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
